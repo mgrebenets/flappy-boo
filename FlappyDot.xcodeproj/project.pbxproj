@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E472F20518A648CE005D39BE /* FDWall.m in Sources */ = {isa = PBXBuildFile; fileRef = E472F20418A648CE005D39BE /* FDWall.m */; };
+		E472F20918A66462005D39BE /* boo60.png in Resources */ = {isa = PBXBuildFile; fileRef = E472F20618A66462005D39BE /* boo60.png */; };
+		E472F20A18A66462005D39BE /* boo76.png in Resources */ = {isa = PBXBuildFile; fileRef = E472F20718A66462005D39BE /* boo76.png */; };
+		E472F20B18A66462005D39BE /* boo76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E472F20818A66462005D39BE /* boo76@2x.png */; };
 		E48FEA2518A4BB2500EBF113 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48FEA2418A4BB2500EBF113 /* Foundation.framework */; };
 		E48FEA2718A4BB2500EBF113 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48FEA2618A4BB2500EBF113 /* CoreGraphics.framework */; };
 		E48FEA2918A4BB2500EBF113 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48FEA2818A4BB2500EBF113 /* UIKit.framework */; };
@@ -18,13 +22,19 @@
 		E48FEA3D18A4BB2600EBF113 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48FEA3B18A4BB2600EBF113 /* Main_iPad.storyboard */; };
 		E48FEA4018A4BB2600EBF113 /* FDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E48FEA3F18A4BB2600EBF113 /* FDViewController.m */; };
 		E48FEA4318A4BB2600EBF113 /* FDMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E48FEA4218A4BB2600EBF113 /* FDMyScene.m */; };
-		E48FEA4518A4BB2600EBF113 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = E48FEA4418A4BB2600EBF113 /* Spaceship.png */; };
 		E48FEA4718A4BB2600EBF113 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48FEA4618A4BB2600EBF113 /* Images.xcassets */; };
 		E48FEA4E18A4BB2600EBF113 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48FEA4D18A4BB2600EBF113 /* XCTest.framework */; };
 		E48FEA4F18A4BB2600EBF113 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48FEA2418A4BB2500EBF113 /* Foundation.framework */; };
 		E48FEA5018A4BB2600EBF113 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48FEA2818A4BB2500EBF113 /* UIKit.framework */; };
 		E48FEA5818A4BB2600EBF113 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E48FEA5618A4BB2600EBF113 /* InfoPlist.strings */; };
 		E48FEA5A18A4BB2600EBF113 /* FlappyDotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E48FEA5918A4BB2600EBF113 /* FlappyDotTests.m */; };
+		E48FEA6518A4BB3800EBF113 /* FDDot.m in Sources */ = {isa = PBXBuildFile; fileRef = E48FEA6418A4BB3800EBF113 /* FDDot.m */; };
+		E48FEA6818A4ECBA00EBF113 /* boo32.png in Resources */ = {isa = PBXBuildFile; fileRef = E48FEA6618A4ECBA00EBF113 /* boo32.png */; };
+		E48FEA6918A4ECBA00EBF113 /* boo32@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48FEA6718A4ECBA00EBF113 /* boo32@2x.png */; };
+		E48FEA6C18A51A7300EBF113 /* boo64.png in Resources */ = {isa = PBXBuildFile; fileRef = E48FEA6A18A51A7200EBF113 /* boo64.png */; };
+		E48FEA6D18A51A7300EBF113 /* boo64@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E48FEA6B18A51A7200EBF113 /* boo64@2x.png */; };
+		E4B0DC7218A51F3200B150D5 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = E4B0DC7018A51F3200B150D5 /* Explosion.sks */; };
+		E4B0DC7318A51F3200B150D5 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = E4B0DC7118A51F3200B150D5 /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E472F20318A648CE005D39BE /* FDWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDWall.h; sourceTree = "<group>"; };
+		E472F20418A648CE005D39BE /* FDWall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDWall.m; sourceTree = "<group>"; };
+		E472F20618A66462005D39BE /* boo60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boo60.png; sourceTree = "<group>"; };
+		E472F20718A66462005D39BE /* boo76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boo76.png; sourceTree = "<group>"; };
+		E472F20818A66462005D39BE /* boo76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boo76@2x.png"; sourceTree = "<group>"; };
 		E48FEA2118A4BB2500EBF113 /* FlappyDot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyDot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48FEA2418A4BB2500EBF113 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E48FEA2618A4BB2500EBF113 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,13 +70,20 @@
 		E48FEA3F18A4BB2600EBF113 /* FDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDViewController.m; sourceTree = "<group>"; };
 		E48FEA4118A4BB2600EBF113 /* FDMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDMyScene.h; sourceTree = "<group>"; };
 		E48FEA4218A4BB2600EBF113 /* FDMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDMyScene.m; sourceTree = "<group>"; };
-		E48FEA4418A4BB2600EBF113 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		E48FEA4618A4BB2600EBF113 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E48FEA4C18A4BB2600EBF113 /* FlappyDotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlappyDotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48FEA4D18A4BB2600EBF113 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		E48FEA5518A4BB2600EBF113 /* FlappyDotTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlappyDotTests-Info.plist"; sourceTree = "<group>"; };
 		E48FEA5718A4BB2600EBF113 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E48FEA5918A4BB2600EBF113 /* FlappyDotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlappyDotTests.m; sourceTree = "<group>"; };
+		E48FEA6318A4BB3800EBF113 /* FDDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDot.h; sourceTree = "<group>"; };
+		E48FEA6418A4BB3800EBF113 /* FDDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDot.m; sourceTree = "<group>"; };
+		E48FEA6618A4ECBA00EBF113 /* boo32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boo32.png; sourceTree = "<group>"; };
+		E48FEA6718A4ECBA00EBF113 /* boo32@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boo32@2x.png"; sourceTree = "<group>"; };
+		E48FEA6A18A51A7200EBF113 /* boo64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boo64.png; sourceTree = "<group>"; };
+		E48FEA6B18A51A7200EBF113 /* boo64@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boo64@2x.png"; sourceTree = "<group>"; };
+		E4B0DC7018A51F3200B150D5 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
+		E4B0DC7118A51F3200B150D5 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +114,8 @@
 		E48FEA1818A4BB2500EBF113 = {
 			isa = PBXGroup;
 			children = (
+				E4B0DC7018A51F3200B150D5 /* Explosion.sks */,
+				E4B0DC7118A51F3200B150D5 /* spark.png */,
 				E48FEA2C18A4BB2500EBF113 /* FlappyDot */,
 				E48FEA5318A4BB2600EBF113 /* FlappyDotTests */,
 				E48FEA2318A4BB2500EBF113 /* Frameworks */,
@@ -123,6 +147,13 @@
 		E48FEA2C18A4BB2500EBF113 /* FlappyDot */ = {
 			isa = PBXGroup;
 			children = (
+				E472F20618A66462005D39BE /* boo60.png */,
+				E472F20718A66462005D39BE /* boo76.png */,
+				E472F20818A66462005D39BE /* boo76@2x.png */,
+				E48FEA6A18A51A7200EBF113 /* boo64.png */,
+				E48FEA6B18A51A7200EBF113 /* boo64@2x.png */,
+				E48FEA6618A4ECBA00EBF113 /* boo32.png */,
+				E48FEA6718A4ECBA00EBF113 /* boo32@2x.png */,
 				E48FEA3518A4BB2600EBF113 /* FDAppDelegate.h */,
 				E48FEA3618A4BB2600EBF113 /* FDAppDelegate.m */,
 				E48FEA3818A4BB2600EBF113 /* Main_iPhone.storyboard */,
@@ -131,9 +162,12 @@
 				E48FEA3F18A4BB2600EBF113 /* FDViewController.m */,
 				E48FEA4118A4BB2600EBF113 /* FDMyScene.h */,
 				E48FEA4218A4BB2600EBF113 /* FDMyScene.m */,
-				E48FEA4418A4BB2600EBF113 /* Spaceship.png */,
+				E472F20318A648CE005D39BE /* FDWall.h */,
+				E472F20418A648CE005D39BE /* FDWall.m */,
 				E48FEA4618A4BB2600EBF113 /* Images.xcassets */,
 				E48FEA2D18A4BB2500EBF113 /* Supporting Files */,
+				E48FEA6318A4BB3800EBF113 /* FDDot.h */,
+				E48FEA6418A4BB3800EBF113 /* FDDot.m */,
 			);
 			path = FlappyDot;
 			sourceTree = "<group>";
@@ -244,11 +278,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E48FEA4518A4BB2600EBF113 /* Spaceship.png in Resources */,
+				E48FEA6C18A51A7300EBF113 /* boo64.png in Resources */,
+				E48FEA6918A4ECBA00EBF113 /* boo32@2x.png in Resources */,
 				E48FEA4718A4BB2600EBF113 /* Images.xcassets in Resources */,
+				E48FEA6D18A51A7300EBF113 /* boo64@2x.png in Resources */,
 				E48FEA3D18A4BB2600EBF113 /* Main_iPad.storyboard in Resources */,
+				E472F20A18A66462005D39BE /* boo76.png in Resources */,
+				E4B0DC7318A51F3200B150D5 /* spark.png in Resources */,
+				E472F20B18A66462005D39BE /* boo76@2x.png in Resources */,
 				E48FEA3A18A4BB2600EBF113 /* Main_iPhone.storyboard in Resources */,
+				E48FEA6818A4ECBA00EBF113 /* boo32.png in Resources */,
 				E48FEA3118A4BB2600EBF113 /* InfoPlist.strings in Resources */,
+				E4B0DC7218A51F3200B150D5 /* Explosion.sks in Resources */,
+				E472F20918A66462005D39BE /* boo60.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +312,9 @@
 				E48FEA4318A4BB2600EBF113 /* FDMyScene.m in Sources */,
 				E48FEA3718A4BB2600EBF113 /* FDAppDelegate.m in Sources */,
 				E48FEA3318A4BB2600EBF113 /* main.m in Sources */,
+				E48FEA6518A4BB3800EBF113 /* FDDot.m in Sources */,
 				E48FEA4018A4BB2600EBF113 /* FDViewController.m in Sources */,
+				E472F20518A648CE005D39BE /* FDWall.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +535,7 @@
 				E48FEA5F18A4BB2600EBF113 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E48FEA6018A4BB2600EBF113 /* Build configuration list for PBXNativeTarget "FlappyDotTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +544,7 @@
 				E48FEA6218A4BB2600EBF113 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

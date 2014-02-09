@@ -1,0 +1,42 @@
+# xcode noise
+build/*
+*.pbxuser
+*.mode1v3
+.picasa.ini
+
+# user-specific Xcode files
+*.xcuserstate
+*.xcuserdatad
+
+# merge noise
+*.orig
+
+# ignore Pods
+Pods/
+Podfile.lock
+
+# ignore chrashlytics framework
+# it can be re-downloaded
+# UPD: add it! installing crashlytics on other mac doesn't re-add this framework
+# seems a bit screwed, so just add it and keep in git
+# Crashlytics.framework
+# boost, on the other hand is 140Mb, so keep it local
+boost.framework/
+no64_boost.framework.bak.framework
+
+# old skool
+.svn
+
+# osx noise
+.DS_Store
+profile
+
+# windows noise
+Thumbs.db
+thumbs.db
+
+# Build number
+Version.h
+
+# ruby
+.ruby-version
