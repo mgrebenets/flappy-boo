@@ -18,13 +18,16 @@ enum {
 };
 
 #ifdef UI_USER_INTERFACE_IDIOM
-#define kScale (2.0f)
-#define IS_IPAD() (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #else
-#define kScale (1.0f)
-#define IS_IPAD() (NO)
+#define IS_IPAD (NO)
 #endif
 
+#if IS_PAD
+#define kScale  (2.0f)
+#else
+#define kScale  (1.0f)
+#endif
 
 static float MaxDY = 4.0f * kScale;
 static float MinDY = -4.0f * kScale;
