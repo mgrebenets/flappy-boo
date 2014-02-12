@@ -18,36 +18,37 @@ enum {
 };
 
 #ifdef UI_USER_INTERFACE_IDIOM
-#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPAD() (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define kScale (IS_IPAD() ? 2.0f : 1.0f)
 #else
-#define IS_IPAD (NO)
+#define IS_IPAD() (NO)
+#define kScale (1.0f)
 #endif
 
-#if IS_PAD
-#define kScale  (2.0f)
-#else
-#define kScale  (1.0f)
-#endif
 
-static float MaxDY = 4.0f * kScale;
-static float MinDY = -4.0f * kScale;
-static float DeltaDY = 0.2f * kScale;
-static float MinDeltaDY = 3.0f * kScale;
-static float JumpDY = 70.0f * kScale;
+// free fall
+// vertical velocity (Vy)
+static float Vy = 8.0f;
+
+// the free fall equation
+static float G = 9.8 * 0.1;
+float freeFall(float vy, float t) {
+    return vy * t - 0.5 * G * t * t;
+}
 
 // walls offset (distance between walls)
-static float MinWallOffset = 100.0f * kScale;
-static float WallOffsetRange = 100.0f *kScale;
+static float MinWallOffset = 150.0f;
+static float WallOffsetRange = 100.0f;
 // wall movement speed
-static float WallDX = 2.0f * kScale;
+static float WallDX = 2.0f;
 // wall width
-static float WallWidth = 100.0f * kScale;
+static float WallWidth = 100.0f;
 // start wall offset from the right edge of the screen
 static float StartWallOffset = 100.0f;  // no need to scale this one
 // gap in the wall to fly through
-static float WallGapHeight = 130.0f * kScale;
+static float WallGapHeight = 130.0f;
 // min gap offset from top or bottom
-static float MinGapOffset = 40.0f * kScale;
+static float MinGapOffset = 40.0f;
 
 // best score key
 static NSString *BestScoreKey = @"BestScoreKey";
@@ -59,11 +60,7 @@ static NSString *BestScoreKey = @"BestScoreKey";
 
 // flying dot
 @property (nonatomic, strong) FDDot *dot;
-// fly up target
-@property (nonatomic, assign) float targetHeight;
 
-// speed with which the obstacles move in (the bird flies, all is relative)
-@property (nonatomic, assign) double speed;
 // game status (ready, flying, falling, game over)
 @property (nonatomic, assign) NSInteger status;
 
@@ -79,6 +76,12 @@ static NSString *BestScoreKey = @"BestScoreKey";
 @property (nonatomic, assign) NSInteger score;
 @property (nonatomic, assign) NSInteger bestScore;
 
+// free fall stuff
+// the starting point
+@property (nonatomic, assign) float y0;
+// current time
+@property (nonatomic, assign) uint64_t time;
+
 @end
 
 @implementation FDMyScene
@@ -89,6 +92,17 @@ static NSString *BestScoreKey = @"BestScoreKey";
 
         // seed the rands
         srand48(time(0));
+
+        // set the params of the world
+        Vy *= kScale;
+        G /= 2.0f / kScale;
+        MinWallOffset *= kScale;
+        WallOffsetRange *= kScale;
+        WallDX *= kScale;
+        WallWidth *= kScale;
+//        StartWallOffset = 100.0f;  // no need to scale this one
+        WallGapHeight *= kScale;
+        MinGapOffset *= kScale;
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
 
@@ -97,8 +111,7 @@ static NSString *BestScoreKey = @"BestScoreKey";
         self.dot = [[FDDot alloc] initWithImageNamed:name];
         [self addChild:self.dot];
 
-        // the walls (5 should be more than enough)
-//        self.walls = @[[FDWall wall], [FDWall wall], [FDWall wall], [FDWall wall], [FDWall wall]];
+        // the walls (3 should be more than enough)
         self.walls = @[[FDWall wall], [FDWall wall], [FDWall wall]];
 
         // add them all as children
@@ -115,6 +128,9 @@ static NSString *BestScoreKey = @"BestScoreKey";
         self.scoreLabel.fontSize = 20;
         self.scoreLabel.position = CGPointMake(80, 0);
         [self addChild:self.scoreLabel];
+
+
+        // prepare game
         [self prepareGame];
     }
     return self;
@@ -134,7 +150,10 @@ static NSString *BestScoreKey = @"BestScoreKey";
     // dot
     self.dot.position = CGPointMake(CGRectGetMidX(self.frame) * 0.25f,
                                     CGRectGetMidY(self.frame));
-    self.targetHeight = self.dot.position.y;
+
+    // free fall
+    self.y0 = self.dot.position.y;
+    self.time = 0;
 
     // walls
     self.firstWallIdx = 0;
@@ -165,8 +184,10 @@ static NSString *BestScoreKey = @"BestScoreKey";
         case GameStatusReady:
             self.status = GameStatusFlying;
         case GameStatusFlying:
-            self.targetHeight = self.dot.position.y + JumpDY;
-            self.dot.dy = MaxDY;
+            // free fall
+            // set current position as starting, reset time to 0
+            self.y0 = self.dot.position.y;
+            self.time = 0;
             break;
         case GameStatusFalling:
             // ignore touches
@@ -228,16 +249,10 @@ static NSString *BestScoreKey = @"BestScoreKey";
         }
     }
 
-    // update delta
-    if (self.dot.position.y <= self.targetHeight) {
-        self.dot.dy = fmaxf(MaxDY * (self.targetHeight - self.dot.position.y) / JumpDY, MinDeltaDY);
-    } else {
-        self.targetHeight = 0;
-        self.dot.dy = fminf(MinDY, self.dot.dy - DeltaDY);
-    }
 
-    // apply delta
-    [self.dot applyDelta];
+    // update position
+    self.dot.position = CGPointMake(self.dot.position.x, self.y0 + freeFall(Vy, self.time));
+    self.time = self.time + 1;
 
     // update walls
     [self updateWalls];

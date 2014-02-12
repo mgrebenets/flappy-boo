@@ -65,6 +65,7 @@
 - (BOOL)testCollisionWithRect:(CGRect)rect {
     CGRect topRect = CGRectOffset(self.topRect, self.position.x, self.position.y);
     CGRect bottomRect = CGRectOffset(self.bottomRect, self.position.x, self.position.y);
+#warning TODO: check if flying over the rect
     return CGRectIntersectsRect(rect, topRect) || CGRectIntersectsRect(rect, bottomRect);
 }
 
