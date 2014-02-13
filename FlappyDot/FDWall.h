@@ -29,7 +29,6 @@
 // update shape
 - (void)updateShape;
 // check collision
-- (BOOL)testCollisionWithPoint:(CGPoint)point;
 - (BOOL)testCollisionWithRect:(CGRect)rect;
 
 @end

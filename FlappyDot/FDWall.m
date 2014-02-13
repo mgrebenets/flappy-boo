@@ -57,16 +57,12 @@
     self.top.path = CGPathCreateWithRect(self.topRect, NULL);
 }
 
-- (BOOL)testCollision:(CGPoint)point {
-    return (point.x >= self.position.x && point.x <= self.position.x + self.wallWidth)
-    && (point.y <= self.gapOffset || point.y >= self.gapOffset + self.gapHeight);
-}
-
 - (BOOL)testCollisionWithRect:(CGRect)rect {
     CGRect topRect = CGRectOffset(self.topRect, self.position.x, self.position.y);
     CGRect bottomRect = CGRectOffset(self.bottomRect, self.position.x, self.position.y);
-#warning TODO: check if flying over the rect
-    return CGRectIntersectsRect(rect, topRect) || CGRectIntersectsRect(rect, bottomRect);
+    // also check if flying over the top
+    return CGRectIntersectsRect(rect, topRect) || CGRectIntersectsRect(rect, bottomRect)
+        || (rect.origin.y >= self.wallHeight && rect.origin.x + rect.size.width >= self.position.x && rect.origin.x <= self.position.x + self.wallWidth);
 }
 
 @end

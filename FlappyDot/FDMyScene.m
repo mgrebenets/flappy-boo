@@ -54,7 +54,14 @@ static float MinGapOffset = 40.0f;
 static NSString *BestScoreKey = @"BestScoreKey";
 
 
-@interface FDMyScene ()
+@interface FDMyScene () {
+    // free fall stuff
+    // the starting point
+    float _y0;
+    // current time
+    uint64_t _time;
+
+}
 
 // disclaimer: I love properties, probably too much in this case
 
@@ -66,6 +73,7 @@ static NSString *BestScoreKey = @"BestScoreKey";
 
 // walls
 @property (nonatomic, strong) NSArray *walls;
+
 // current wall idx
 @property (nonatomic, assign) NSInteger firstWallIdx;
 // index of next wall to pass
@@ -76,11 +84,6 @@ static NSString *BestScoreKey = @"BestScoreKey";
 @property (nonatomic, assign) NSInteger score;
 @property (nonatomic, assign) NSInteger bestScore;
 
-// free fall stuff
-// the starting point
-@property (nonatomic, assign) float y0;
-// current time
-@property (nonatomic, assign) uint64_t time;
 
 @end
 
@@ -152,8 +155,8 @@ static NSString *BestScoreKey = @"BestScoreKey";
                                     CGRectGetMidY(self.frame));
 
     // free fall
-    self.y0 = self.dot.position.y;
-    self.time = 0;
+    _y0 = self.dot.position.y;
+    _time = 0;
 
     // walls
     self.firstWallIdx = 0;
@@ -186,8 +189,8 @@ static NSString *BestScoreKey = @"BestScoreKey";
         case GameStatusFlying:
             // free fall
             // set current position as starting, reset time to 0
-            self.y0 = self.dot.position.y;
-            self.time = 0;
+            _y0 = self.dot.position.y;
+            _time = 0;
             break;
         case GameStatusFalling:
             // ignore touches
@@ -251,8 +254,8 @@ static NSString *BestScoreKey = @"BestScoreKey";
 
 
     // update position
-    self.dot.position = CGPointMake(self.dot.position.x, self.y0 + freeFall(Vy, self.time));
-    self.time = self.time + 1;
+    self.dot.position = CGPointMake(self.dot.position.x, _y0 + freeFall(Vy, _time));
+    _time++;
 
     // update walls
     [self updateWalls];
