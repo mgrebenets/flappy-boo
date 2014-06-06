@@ -54,6 +54,7 @@
     self.bottomRect = CGRectMake(0, 0, self.wallWidth, self.gapOffset);
     self.bottom.path = CGPathCreateWithRect(self.bottomRect, NULL);
     self.topRect = CGRectMake(0, self.gapOffset + self.gapHeight, self.wallWidth, self.wallHeight - self.gapOffset - self.gapHeight);
+#warning TODO: can modify path instead of creating new each time?
     self.top.path = CGPathCreateWithRect(self.topRect, NULL);
 }
 
