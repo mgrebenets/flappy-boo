@@ -3,6 +3,7 @@ build/*
 *.pbxuser
 *.mode1v3
 .picasa.ini
+*.xccheckout
 
 # user-specific Xcode files
 *.xcuserstate
